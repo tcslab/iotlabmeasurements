@@ -9,6 +9,28 @@ gem 'spring', :group => :development
 
 
 
+gem 'mongoid', '~> 4.0.0'
+gem 'bson', '~> 2.3'
+
+group :development, :test do
+  gem 'spring-commands-rspec'
+  gem 'dotenv-rails'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'mongoid-rspec', '~> 2.1.0'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'pry-rails'
+  gem 'pry-byebug'
+  gem 'pry-coolline'
+  gem 'shoulda-matchers'
+end
+
+group :test do
+  gem 'faker'
+  gem 'capybara'
+  gem 'launchy'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
