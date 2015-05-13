@@ -1,6 +1,6 @@
 class MeasurementsController < ApplicationController
   def index
-    @measurements = Measurement.all.as_json
+    @measurements = Measurement.all
     render json: @measurements
   end
 end
