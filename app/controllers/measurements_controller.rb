@@ -31,6 +31,20 @@ class MeasurementsController < ApplicationController
     render json: @measurements
   end
 
+  def get_measurements_before
+    provided_date = DateTime.parse(params[:date])
+    @measurements = Array.new
+    @measurements = Measurement.get_measurement_before(provided_date).to_a
+    render json: @measurements
+  end
+
+  def get_measurements_after
+    provided_date = DateTime.parse(params[:date])
+    @measurements = Array.new
+    @measurements = Measurement.get_measurement_after(provided_date).to_a
+    render json: @measurements
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_measurement

@@ -11,10 +11,18 @@ necessarily mean that the db is working.
     {"measurement":{"experiment_id":"32","resource_id":"3232","measurement_value":"321",
     "unit_type":"string"}}' http://ip:port/measurements
 
-## Get measurement by experiment_id
+## Get measurements by experiment_id
 
     curl -v -X GET ip:port/measurements/get_measurement_by_experiment_id.json?experiment_id=4
 
-## Get measurement by resource_id
+## Get measurements by resource_id
 
     curl -v -X GET ip:port/measurements/get_measurement_by_resource_id?resource_id=2
+
+## Get measurements by created before
+
+    curl -v -X GET ip:port/measurements/get_measurements_before?date=Thu%20May%2012%2017:35:54%20CEST%202015
+
+## Get measurements by created after
+
+    curl -v -X GET ip:port/measurements/get_measurements_after?date=Thu%20May%2012%2017:35:54%20CEST%202015

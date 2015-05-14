@@ -14,5 +14,13 @@ class Measurement
     Measurement.where(resource_id: resource_id).only(:id,:experiment_id, :resource_id,:measurement_value,:unit_type, :created_at, :updated_at)
   end
 
+  def self.get_measurement_before(provided_date)
+    Measurement.where(:created_at.lt => provided_date).only(:id,:experiment_id, :resource_id,:measurement_value,:unit_type, :created_at, :updated_at)
+  end
+
+  def self.get_measurement_after(provided_date)
+    Measurement.where(:created_at.gt => provided_date).only(:id,:experiment_id, :resource_id,:measurement_value,:unit_type, :created_at, :updated_at)
+  end
+
 end
 

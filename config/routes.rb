@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     collection do
       get 'get_measurement_by_experiment_id'
       get 'get_measurement_by_resource_id'
+      get 'get_measurements_before'
+      get 'get_measurements_after'
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
