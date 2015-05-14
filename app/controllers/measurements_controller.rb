@@ -24,6 +24,13 @@ class MeasurementsController < ApplicationController
     render json: @measurements
   end
 
+  def get_measurement_by_resource_id
+    @measurements = Array.new
+    experiment_id = params["resource_id"]
+    @measurements = Measurement.get_measurement_by_resource(experiment_id).to_a
+    render json: @measurements
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_measurement

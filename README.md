@@ -15,3 +15,6 @@ necessarily mean that the db is working.
 
     curl -v -X GET ip:port/measurements/get_measurement_by_experiment_id.json?experiment_id=4
 
+## Get measurement by resource_id
+
+    curl -v -X GET ip:port/measurements/get_measurement_by_resource_id?resource_id=2

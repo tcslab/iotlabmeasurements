@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :measurements, except: [:new, :edit] do
     collection do
       get 'get_measurement_by_experiment_id'
+      get 'get_measurement_by_resource_id'
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
