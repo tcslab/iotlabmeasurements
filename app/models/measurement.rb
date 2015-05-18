@@ -22,5 +22,9 @@ class Measurement
     Measurement.where(:created_at.gt => provided_date).only(:id,:experiment_id, :resource_id,:measurement_value,:unit_type, :created_at, :updated_at)
   end
 
+  def self.get_measurement_by_experimentresource(experiment_id, resource_id)
+    Measurement.where(experiment_id: experiment_id).and(resource_id: resource_id).only(:id,:experiment_id, :resource_id,:measurement_value,:unit_type, :created_at, :updated_at)
+  end
+
 end
 
