@@ -34,6 +34,11 @@ the API but overall this has to be done through scripts.
     curl -v -X GET  
     129.194.70.52:9000/measurements/get_measurements_after?date=Thu%20May%2012%2017:35:54%20CEST%202015
 
+## Get the last measurement
+
+    curl -v -X GET  
+    129.194.70.52:9000/measurements/get_measurements_last
+
 Make sure the **mongod** instance on the server is running. Even if  
 **sudo service mongod start** command has been executed, this doesn't  
 necessarily mean that the db is working.

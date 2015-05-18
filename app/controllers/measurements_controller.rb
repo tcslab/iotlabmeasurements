@@ -55,7 +55,7 @@ class MeasurementsController < ApplicationController
 
   def get_measurements_last
     @measurements = Array.new
-    @measurements = Measurement.get_last_measurement(provided_date).to_a
+    @measurements = Measurement.get_last_measurement.to_a
     render json: @measurements.last
   end
 

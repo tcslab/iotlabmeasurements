@@ -27,7 +27,7 @@ class Measurement
   end
 
   def self.get_last_measurement
-    Measurement.last.only(:id,:experiment_id, :resource_id,:measurement_value,:unit_type, :created_at, :updated_at)
+    Measurement.last
   end
 
 end
