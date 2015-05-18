@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get 'get_measurement_by_resource_id'
       get 'get_measurements_before'
       get 'get_measurements_after'
+      get 'get_measurement_by_experimentresource'
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

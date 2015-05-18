@@ -19,6 +19,11 @@ the API but overall this has to be done through scripts.
     curl -v -X GET  
     129.194.70.52:9000/measurements/get_measurement_by_resource_id?resource_id=2
 
+## Get measurements by experiment_id \&\& resource_id
+
+    curl -v -X GET  
+    129.194.70.52:9000/measurements/get_measurement_by_experimentresource?experiment_id=32&resource_id=3232
+
 ## Get measurements by created before
 
     curl -v -X GET  
