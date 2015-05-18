@@ -53,6 +53,12 @@ class MeasurementsController < ApplicationController
     render json: @measurements
   end
 
+  def get_measurements_last
+    @measurements = Array.new
+    @measurements = Measurement.get_last_measurement(provided_date).to_a
+    render json: @measurements.last
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_measurement

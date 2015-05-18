@@ -26,5 +26,9 @@ class Measurement
     Measurement.where(experiment_id: experiment_id).and(resource_id: resource_id).only(:id,:experiment_id, :resource_id,:measurement_value,:unit_type, :created_at, :updated_at)
   end
 
+  def self.get_last_measurement
+    Measurement.last.only(:id,:experiment_id, :resource_id,:measurement_value,:unit_type, :created_at, :updated_at)
+  end
+
 end
 
