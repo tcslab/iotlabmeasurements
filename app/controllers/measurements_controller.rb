@@ -59,6 +59,20 @@ class MeasurementsController < ApplicationController
     render json: @measurements.last
   end
 
+  def get_max
+    unit = params["unit_type"]
+    @measurements = Array.new
+    @measurements = Measurement.get_max(unit).to_a
+    render json: @measurements
+  end
+
+  def get_min
+    unit = params["unit_type"]
+    @measurements = Array.new
+    @measurements = Measurement.get_min(unit).to_a
+    render json: @measurements
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_measurement

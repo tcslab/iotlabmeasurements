@@ -30,5 +30,13 @@ class Measurement
     Measurement.last
   end
 
-end
+  def self.get_max(unit)
+    Measurement.where(unit_type: unit).max(:measurement_value)
+    Measurement.where(measurement_value: Measurement.max(:measurement_value)).and(unit_type: unit)
+  end
 
+  def self.get_min(unit)
+    Measurement.where(measurement_value: Measurement.min(:measurement_value)).and(unit_type: unit)
+  end
+
+end

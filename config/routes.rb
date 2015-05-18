@@ -9,6 +9,8 @@ Rails.application.routes.draw do
       get 'get_measurements_after'
       get 'get_measurement_by_experimentresource'
       get 'get_measurements_last'
+      get 'get_max'
+      get 'get_min'
 
     end
   end
