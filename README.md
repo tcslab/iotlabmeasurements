@@ -54,6 +54,12 @@ the API but overall this has to be done through scripts.
     curl -v -X GET  
     129.194.70.52:9000/measurements/get_average?experiment_id=32&unit_type=celsius
 
+## Get the availability status of a resource. Allows to verify if a resource is either available or not
+
+    curl -v -X GET  
+    129.194.70.52:9000/measurements/is_resource_availabile?resource_id=43
+    
+
 Make sure the **mongod** instance on the server is running. Even if  
 **sudo service mongod start** command has been executed, this doesn't  
 necessarily mean that the db is working.

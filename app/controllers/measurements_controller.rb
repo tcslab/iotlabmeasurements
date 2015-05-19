@@ -82,8 +82,10 @@ class MeasurementsController < ApplicationController
 
   def is_resource_availabile
     resource_id = params["resource_id"]
-    @measurements = Measurement.is_resource_availabile(resource_id)
-    render json: @measurements
+    @measurement_status = Measurement.is_resource_availabile(resource_id)
+    message = "true"
+    message = "false" if !@measurement_status
+    render json: message.as_json
   end
 
 

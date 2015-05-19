@@ -13,7 +13,6 @@ Rails.application.routes.draw do
       get 'get_min'
       get 'get_average'
       get 'is_resource_availabile'
-
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.
