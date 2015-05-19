@@ -39,6 +39,21 @@ the API but overall this has to be done through scripts.
     curl -v -X GET  
     129.194.70.52:9000/measurements/get_measurements_last
 
+## Get the maximum sensor value for a given experiment and specific unit type
+
+    curl -v -X GET  
+    129.194.70.52:9000/measurements/get_max?experiment_id=32&unit_type=celsius
+
+## Get the minimum sensor value for a given experiment and specific unit type
+
+    curl -v -X GET  
+    129.194.70.52:9000/measurements/get_min?experiment_id=32&unit_type=celsius
+
+## Get the average sensor value for a given experiment and specific unit type
+
+    curl -v -X GET  
+    129.194.70.52:9000/measurements/get_average?experiment_id=32&unit_type=celsius
+
 Make sure the **mongod** instance on the server is running. Even if  
 **sudo service mongod start** command has been executed, this doesn't  
 necessarily mean that the db is working.

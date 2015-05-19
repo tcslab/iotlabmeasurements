@@ -61,17 +61,31 @@ class MeasurementsController < ApplicationController
 
   def get_max
     unit = params["unit_type"]
-    @measurements = Array.new
-    @measurements = Measurement.get_max(unit).to_a
+    experiment_id = params["experiment_id"]
+    @measurements = Measurement.get_max(experiment_id, unit)
     render json: @measurements
   end
 
   def get_min
     unit = params["unit_type"]
-    @measurements = Array.new
-    @measurements = Measurement.get_min(unit).to_a
+    experiment_id = params["experiment_id"]
+    @measurements = Measurement.get_min(experiment_id, unit)
     render json: @measurements
   end
+
+  def get_average
+    unit = params["unit_type"]
+    experiment_id = params["experiment_id"]
+    @measurements = Measurement.get_average(experiment_id, unit)
+    render json: @measurements
+  end
+
+  def is_resource_availabile
+    resource_id = params["resource_id"]
+    @measurements = Measurement.is_resource_availabile(resource_id)
+    render json: @measurements
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

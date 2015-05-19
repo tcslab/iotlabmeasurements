@@ -3,7 +3,7 @@ class Measurement
   include Mongoid::Timestamps
   field :experiment_id, type: Integer
   field :resource_id, type: Integer
-  field :measurement_value, type: String
+  field :measurement_value, type: Float
   field :unit_type, type: String
 
   def self.get_measurement_by_experiment(experiment_id)
@@ -30,13 +30,23 @@ class Measurement
     Measurement.last
   end
 
-  def self.get_max(unit)
-    Measurement.where(unit_type: unit).max(:measurement_value)
-    Measurement.where(measurement_value: Measurement.max(:measurement_value)).and(unit_type: unit)
+  def self.get_max(experiment_id,unit)
+    Measurement.where(unit_type: unit).and(experiment_id: experiment_id).max(:measurement_value)
   end
 
-  def self.get_min(unit)
-    Measurement.where(measurement_value: Measurement.min(:measurement_value)).and(unit_type: unit)
+  def self.get_min(experiment_id,unit)
+    Measurement.where(unit_type: unit).and(experiment_id: experiment_id).min(:measurement_value)
+  end
+
+  def self.get_average(experiment_id,unit)
+    Measurement.where(unit_type: unit).and(experiment_id: experiment_id).avg(:measurement_value)
+  end
+
+  def self.is_resource_availabile(resource_id)
+    available = true
+    measurement = Measurement.where(resource_id: resource_id).order_by([:created_at, :desc]).limit(1).first
+    available = false if measurement.measurement_value.nil?
+    return available
   end
 
 end

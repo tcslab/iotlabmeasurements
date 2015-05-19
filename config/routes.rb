@@ -11,6 +11,8 @@ Rails.application.routes.draw do
       get 'get_measurements_last'
       get 'get_max'
       get 'get_min'
+      get 'get_average'
+      get 'is_resource_availabile'
 
     end
   end
