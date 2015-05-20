@@ -36,7 +36,6 @@ class MeasurementsController < ApplicationController
     experiment_id = params["experiment_id"]
     resource_id = params["resource_id"]
     @measurements = Measurement.get_measurement_by_experimentresource(experiment_id,resource_id).to_a
-    binding.pry
     render json: @measurements
   end
 
