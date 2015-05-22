@@ -60,23 +60,23 @@ class MeasurementsController < ApplicationController
   end
 
   def get_max
-    unit = params["unit_type"]
+    resource_id = params["resource_id"]
     experiment_id = params["experiment_id"]
-    @measurements = Measurement.get_max(experiment_id, unit)
+    @measurements = Measurement.get_max(experiment_id, resource_id)
     render json: @measurements
   end
 
   def get_min
-    unit = params["unit_type"]
+    resource_id = params["resource_id"]
     experiment_id = params["experiment_id"]
-    @measurements = Measurement.get_min(experiment_id, unit)
+    @measurements = Measurement.get_min(experiment_id, resource_id)
     render json: @measurements
   end
 
   def get_average
-    unit = params["unit_type"]
+    resource_id = params["resource_id"]
     experiment_id = params["experiment_id"]
-    @measurements = Measurement.get_average(experiment_id, unit)
+    @measurements = Measurement.get_average(experiment_id, resource_id)
     render json: @measurements
   end
 
