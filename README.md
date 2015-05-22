@@ -39,20 +39,20 @@ the API but overall this has to be done through scripts.
     curl -v -X GET  
     129.194.70.52:9000/measurements/get_measurements_last
 
-## Get the maximum sensor value for a given experiment and specific unit type
+## Get the maximum sensor value for a given experiment and resource
 
     curl -v -X GET  
-    129.194.70.52:9000/measurements/get_max?experiment_id=32&unit_type=celsius
+    129.194.70.52:9000/measurements/get_max?experiment_id=1&resource_id=519
 
-## Get the minimum sensor value for a given experiment and specific unit type
-
-    curl -v -X GET  
-    129.194.70.52:9000/measurements/get_min?experiment_id=32&unit_type=celsius
-
-## Get the average sensor value for a given experiment and specific unit type
+## Get the minimum sensor value for a given experiment and resource
 
     curl -v -X GET  
-    129.194.70.52:9000/measurements/get_average?experiment_id=32&unit_type=celsius
+    129.194.70.52:9000/measurements/get_min?experiment_id=1&resource_id=519
+
+## Get the average sensor value for a given experiment and resource
+
+    curl -v -X GET  
+    129.194.70.52:9000/measurements/get_average?experiment_id=1&resource_id=519
 
 ## Get the availability status of a resource. Allows to verify if a resource is either available or not
 
