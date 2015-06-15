@@ -55,7 +55,7 @@ class MeasurementsController < ApplicationController
 
   def get_measurements_last
     @measurements = Array.new
-    @measurements = Measurement.get_last_measurement.to_a
+    @measurements = Measurement.get_last_measurement(params["resource_id"]).to_a
     render json: @measurements.last
   end
 
