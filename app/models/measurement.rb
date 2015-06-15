@@ -22,16 +22,21 @@ class Measurement
     Measurement.where(:created_at.gt => provided_date).only(:id,:experiment_id, :resource_id,:measurement_value,:unit_type, :created_at, :updated_at)
   end
 
-  def self.get_measurement_by_experimentresource(experiment_id=-1, resource_id=-1)
+  def self.get_measurement_by_experimentresource(experiment_id=nil, resource_id=nil)
     result = nil
-    result = Measurement.where(experiment_id: experiment_id).only(:id,:experiment_id, :resource_id,:measurement_value,:unit_type, :created_at, :updated_at) if(experiment_id>0)
-    result = Measurement.where(resource_id: resource_id).only(:id,:experiment_id, :resource_id,:measurement_value,:unit_type, :created_at, :updated_at) if(resource_id>0)
-    result = Measurement.where(experiment_id: experiment_id).and(resource_id: resource_id).only(:id,:experiment_id, :resource_id,:measurement_value,:unit_type, :created_at, :updated_at) if(experiment_id>0 && resource_id>0)
+    if(experiment_id.present?)
+      result = Measurement.where(experiment_id: experiment_id)
+    elsif(resource_id.present?) 
+      result = Measurement.where(resource_id: resource_id) 
+    elsif(experiment_id.present? && resource_id.present?)
+      result = Measurement.where(experiment_id: experiment_id).and(resource_id: resource_id) 
+    end
+    result
   end
 
-  def self.get_last_measurement(resource_id: -1)
+  def self.get_last_measurement(resource_id=nil)
     result = nil
-    if resource_id>0 
+    if resource_id.present?
       result = Measurement.where(resource_id: resource_id).last
     else
       result = Measurement.last
