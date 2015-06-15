@@ -26,8 +26,13 @@ class Measurement
     Measurement.where(experiment_id: experiment_id).and(resource_id: resource_id).only(:id,:experiment_id, :resource_id,:measurement_value,:unit_type, :created_at, :updated_at)
   end
 
-  def self.get_last_measurement
-    Measurement.last
+  def self.get_last_measurement(resource_id: -1)
+    result = nil
+    if resource_id>0 
+      result = Measurement.where(resource_id: resource_id).last
+    else
+      Measurement.last
+    end
   end
 
   def self.get_max(experiment_id,resource_id)
