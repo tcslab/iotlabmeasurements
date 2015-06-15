@@ -17,20 +17,6 @@ class MeasurementsController < ApplicationController
     end
   end
 
-  def get_measurement_by_experiment_id
-    @measurements = Array.new
-    experiment_id = params["experiment_id"]
-    @measurements = Measurement.get_measurement_by_experiment(experiment_id).to_a
-    render json: @measurements
-  end
-
-  def get_measurement_by_resource_id
-    @measurements = Array.new
-    resource_id = params["resource_id"]
-    @measurements = Measurement.get_measurement_by_resource(resource_id).to_a
-    render json: @measurements
-  end
-
   def get_measurement_by_experimentresource
     @measurements = Array.new
     experiment_id = params["experiment_id"]
