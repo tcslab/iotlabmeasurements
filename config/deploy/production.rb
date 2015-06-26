@@ -15,7 +15,7 @@
 # something that quacks like a hash can be used to set
 # extended properties on the server.
 set :stage, :production
-server '129.194.70.52', user: 'tcs', roles: %w{web app}
+server '5.53.105.51', user: 'iotlab', roles: %w{web app}
 
 # you can set custom ssh options
 # it's possible to pass any option but you need to keep in mind that net/ssh understand limited list of options
