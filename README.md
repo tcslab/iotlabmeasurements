@@ -35,7 +35,7 @@ the API but overall this has to be done through scripts.
     curl -v -X GET  
     129.194.70.52:9000/measurements/get_measurements_after?date=Thu%20May%2012%2017:35:54%20CEST%202015
 
-## Get the last measurement
+## Get the last measurement and if resource_id is provided get the last measurement with that measurement id
 
     curl -v -X GET  
     129.194.70.52:9000/measurements/get_measurements_last
