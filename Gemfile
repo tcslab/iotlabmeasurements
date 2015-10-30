@@ -8,7 +8,7 @@ gem 'rails-api'
 gem 'spring', :group => :development
 
 gem "active_model_serializers", github: "rails-api/active_model_serializers"
-
+gem 'rack-cors', :require => 'rack/cors'
 
 
 gem 'mongoid', '~> 4.0.0'
