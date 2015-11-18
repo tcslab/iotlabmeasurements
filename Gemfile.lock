@@ -73,6 +73,7 @@ GEM
     connection_pool (2.2.0)
     coolline (0.5.0)
       unicode_utils (~> 1.4)
+    database_cleaner (1.4.1)
     diff-lcs (1.2.5)
     dotenv (2.0.1)
     dotenv-rails (2.0.1)
@@ -249,6 +250,7 @@ DEPENDENCIES
   capistrano-bundler (~> 1.1.2)
   capistrano-rails (~> 1.1.1)
   capybara
+  database_cleaner
   dotenv-rails
   factory_girl_rails
   faker
