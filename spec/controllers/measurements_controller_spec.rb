@@ -8,7 +8,7 @@ RSpec.describe MeasurementsController, type: :controller do
   let(:limit) { 3 }
 
   describe 'GET #get_measurement_by_experimentresource' do
-    it 'Given a rate between allowed range, vote comment' do
+    it 'Given filters, return corresponding measurements' do
       counter = measurements
       params = {filters:filters,limit:limit}
       get :get_measurement_by_experimentresource, params, format: 'json'
