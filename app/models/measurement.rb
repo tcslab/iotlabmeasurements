@@ -14,17 +14,8 @@ class Measurement
     Measurement.where(:created_at.gt => provided_date).only(:id,:experiment_id, :resource_id,:measurement_value,:unit_type, :created_at, :updated_at)
   end
 
-  def self.get_measurement_by_experimentresource(experiment_id=nil, resource_id=nil, filters={})
-    binding.pry
-    result = nil
-    if(experiment_id.present?)
-      result = Measurement.where(experiment_id: experiment_id)
-    elsif(resource_id.present?)
-      result = Measurement.where(resource_id: resource_id)
-    elsif(experiment_id.present? && resource_id.present?)
-      result = Measurement.where(experiment_id: experiment_id).and(resource_id: resource_id)
-    end
-    result
+  def self.get_measurement_by_experimentresource(attrs:{},limit:nil)
+    Measurement.where(attrs).limit(limit).desc(:created_ad).entries
   end
 
   def self.get_last_measurement(resource_id=nil)
