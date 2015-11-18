@@ -18,7 +18,10 @@ class MeasurementsController < ApplicationController
   end
 
   def get_measurement_by_experimentresource
-    @measurements = Measurement.get_measurement_by_experimentresource(attrs:params["filters"],limit:params["limit"])
+    attrs = Hash.new
+    attrs["experiment_id"] = params["experiment_id"] if params["experiment_id"].present?
+    attrs["resource_id"] = params["resource_id"] if params["resource_id"].present?
+    @measurements = Measurement.get_measurement_by_experimentresource(attrs:attrs,limit:params["limit"])
     render json: @measurements
   end
 
