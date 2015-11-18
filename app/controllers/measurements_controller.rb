@@ -21,7 +21,8 @@ class MeasurementsController < ApplicationController
     @measurements = Array.new
     experiment_id = params["experiment_id"]
     resource_id = params["resource_id"]
-    @measurements = Measurement.get_measurement_by_experimentresource(experiment_id,resource_id).to_a
+    filters = params["filters"]
+    @measurements = Measurement.get_measurement_by_experimentresource(experiment_id,resource_id,filters).entries
     render json: @measurements
   end
 

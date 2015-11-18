@@ -6,4 +6,8 @@ FactoryGirl.define do
     unit_type "celsius"
   end
 
+  sequence :created_at do |n|
+    n.hours.ago
+  end
+
 end

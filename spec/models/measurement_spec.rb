@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Measurement, type: :model do
-  context 'validations' do
-    before { FactoryGirl.build(:node) }
-
-    it { is_expected.to validate_presence_of :name }
-    it { is_expected.to validate_presence_of :latitude }
-    it { is_expected.to validate_presence_of :longitude }
-    it { is_expected.to validate_presence_of :urn }
-
+  let(:measurements) { FactoryGirl.create_list(:measurement,20) }
+  let(:experiment_id) { 1 }
+  let(:resource_id) { 1 }
+  let(:filters) { {limit:5} }
+  describe '.get_measurement_by_experimentresource' do
+    it 'given experiment,resource and filters,returns expected measurements' do
+      expect(Measurement.get_measurement_by_experimentresource(experiment_id,resource_id,filters)).to_not eq []
+    end
   end
 end
