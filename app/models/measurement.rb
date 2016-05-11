@@ -28,15 +28,15 @@ class Measurement
     result
   end
 
-  def self.get_max(experiment_id,resource_id)
+  def self.get_max(experiment_id, resource_id)
     Measurement.where(resource_id: resource_id).and(experiment_id: experiment_id).max(:measurement_value)
   end
 
-  def self.get_min(experiment_id,resource_id)
+  def self.get_min(experiment_id, resource_id)
     Measurement.where(resource_id: resource_id).and(experiment_id: experiment_id).min(:measurement_value)
   end
 
-  def self.get_average(experiment_id,resource_id)
+  def self.get_average(experiment_id, resource_id)
     Measurement.where(resource_id: resource_id).and(experiment_id: experiment_id).avg(:measurement_value)
   end
 
