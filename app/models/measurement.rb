@@ -3,7 +3,7 @@ class Measurement
   include Mongoid::Timestamps
   field :experiment_id, type: Integer
   field :resource_id, type: Integer
-  field :measurement_value, type: Float
+  field :measurement_value, type: String
   field :unit_type, type: String
 
   def self.get_measurement_before(provided_date)
