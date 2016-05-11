@@ -11,7 +11,7 @@ the API but overall this has to be done through scripts.
 
 ## Insert a measurement
 
-    curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d ' {"measurement":{"experiment_id":"32","resource_id":"3232","measurement_value":"321",
+    curl -v -H "Accept: application/json" -H "Content-type: application/json" -X POST -d ' {"measurement":{"experiment_id":"32","resource_id":"3232","measurement_value":" [32] , [23]",
     "unit_type":"string"}}' http://iotlabmongo.iotlab.eu/measurements
 
 ## Get measurements by experiment_id and/or resource_id
